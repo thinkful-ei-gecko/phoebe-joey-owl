@@ -4,7 +4,7 @@ function ParticipantList (props) {
   function participantListStatus (participant) {
     if (!participant.inSession) {
       return (
-        <p>Left Session</p>
+        <p>left Session</p>
       );
     }
     if (participant.onStage) {
@@ -23,7 +23,7 @@ function ParticipantList (props) {
     return (
       <li>
         <img src={participant.avatar} alt="{participant.name}'s avatar" />
-        <p>{participant.name}</p>
+        <p><span className='bold'>{participant.name}</span></p>
         {participantListStatus(participant)}
       </li>
     )

@@ -19,7 +19,7 @@ export default function Chat (props) {
       return (
         <li>
           <img src={chatEvent.avatar} alt="{chatEventsWithParticipants.name}'s avatar" />
-          <h2>{chatEvent.name}</h2>
+          <p><span className="bold">{chatEvent.name}</span></p>
           <p className="timestamp">{new Date(chatEvent.timestamp).toDateString}</p>
           <p className="message">{chatEvent.message}</p>
         </li>
@@ -34,7 +34,7 @@ export default function Chat (props) {
           participant.inSession = true;
         }
       });
-      return <li className="not-message"><span className="bold">{chatEvent.name}</span> joined</li>;
+      return <li className="not-message"><span className="bold">{chatEvent.name}&nbsp;</span> joined</li>;
     }
 
     if (chatEvent.type === 'leave') {
@@ -44,7 +44,7 @@ export default function Chat (props) {
           participant.inSession = true;
         }
       });
-      return <li className="not-message"><span className="bold">{chatEvent.name}</span> left</li>;
+      return <li className="not-message"><span className="bold">{chatEvent.name}&nbsp;</span> left</li>;
     }
 
     if (chatEvent.type === 'join-stage')  {
@@ -54,7 +54,7 @@ export default function Chat (props) {
           participant.onStage = true;
         }
       });
-      return <li className="not-message"><span className="bold">{chatEvent.name}</span> joined the stage</li>;
+      return <li className="not-message"><span className="bold">{chatEvent.name} &nbsp;</span> joined the stage</li>;
     }
 
     if (chatEvent.type === 'leave-stage') {
@@ -64,24 +64,24 @@ export default function Chat (props) {
           participant.onStage = false;
         }
       });
-      return <li className="not-message"><span className="bold">{chatEvent.name}</span> left the stage</li>;
+      return <li className="not-message"><span className="bold">{chatEvent.name}&nbsp;</span> left the stage</li>;
     }
 
     //if someone gives a thumbs up/down/raises hand/claps
     if (chatEvent.type === 'thumbs-up') {
-      return <li className="not-message"><span className="bold">{chatEvent.name}</span> gave a thumbs up 👍</li>;
+      return <li className="not-message"><span className="bold">{chatEvent.name}&nbsp;</span> gave a thumbs up 👍</li>;
     }
 
     if (chatEvent.type === 'thumbs-down') {
-      return <li className="not-message"><span className="bold">{chatEvent.name}</span> gave a thumbs down 👎</li>;
+      return <li className="not-message"><span className="bold">{chatEvent.name}&nbsp;</span> gave a thumbs down 👎</li>;
     }
 
     if (chatEvent.type === 'raise-hand') {
-      return <li className="not-message"><span className="bold">{chatEvent.name}</span> raised their hand ✋</li>;
+      return <li className="not-message"><span className="bold">{chatEvent.name}&nbsp;</span> raised their hand ✋</li>;
     }
 
     if (chatEvent.type === 'clap') {
-      return <li className="not-message"><span className="bold">{chatEvent.name}</span> clapped 👏</li>;
+      return <li className="not-message"><span className="bold">{chatEvent.name}&nbsp;</span> clapped 👏</li>;
     }
 
   });

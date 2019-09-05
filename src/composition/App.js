@@ -4,16 +4,18 @@ import Stage from './stage';
 import Chat from './Chat';
 
 function App(props) {
-  //Add event handlers to the buttons and a toggle; hide one display when the other is clicked
+
   return (
     <React.Fragment>
       <div className='participant-and-chat'>
         <div className='button-div'>
-          <button>Chat</button>
-          <button>Participants</button>
+          <button className="chatButton">Chat</button>
+          <button className="participantsButton">Participants</button>
         </div>
-        <ul>
+        <ul className='ul--style--general chat-container'>
           <Chat participants={props.participants} chatEvents={props.chatEvents} />
+        </ul>
+        <ul className='ul--style--general participant-container'>
           <ParticipantList participants={props.participants} />
         </ul>
       </div>
